@@ -12,9 +12,14 @@ import cl.duoc.ms_sales_bs.model.dto.WebPayTransactionResponseDTO;
 @FeignClient(name="api-webpay", url = "https://webpay3gint.transbank.cl/")
 public interface WebPayFeignClient {
 
-    @PostMapping(value = "/rswebpaytransaction/api/webpay/v1.2/transactions", consumes = "application/json", produces = "application/json")
-    WebPayTransactionResponseDTO generateTransaction(@RequestHeader("Tbk-Api-Key-Id") String tbkApiKeyId, 
-                                                     @RequestHeader("Tbk-Api-Key-Secret") String tbkApiKeySecret,
-                                                     @RequestBody WebPayTransactionRequestDTO webPayTransactionRequestDTO);
-
+    @PostMapping(
+        value = "/rswebpaytransaction/api/webpay/v1.2/transactions",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    WebPayTransactionResponseDTO generateTransaction(
+        @RequestHeader("Tbk-Api-Key-Id") String tbkApiKeyId, 
+        @RequestHeader("Tbk-Api-Key-Secret") String tbkApiKeySecret,
+        @RequestBody WebPayTransactionRequestDTO webPayTransactionRequestDTO
+    );
 }

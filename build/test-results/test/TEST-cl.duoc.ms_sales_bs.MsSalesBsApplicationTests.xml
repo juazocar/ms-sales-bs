@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cl.duoc.ms_sales_bs.MsSalesBsApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-11T19:36:56.516Z" hostname="MacBook-Air-de-Juan-2.local" time="0.376">
+  <properties/>
+  <testcase name="contextLoads()" classname="cl.duoc.ms_sales_bs.MsSalesBsApplicationTests" time="0.376"/>
+  <system-out><![CDATA[15:36:55.717 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [cl.duoc.ms_sales_bs.MsSalesBsApplicationTests]: MsSalesBsApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:36:55.757 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration cl.duoc.ms_sales_bs.MsSalesBsApplication for test class cl.duoc.ms_sales_bs.MsSalesBsApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2025-04-11T15:36:56.008-04:00  INFO 31286 --- [ms-sales-bs] [    Test worker] c.d.m.MsSalesBsApplicationTests          : Starting MsSalesBsApplicationTests using Java 17.0.12 with PID 31286 (started by juanazocarmalverde in /Users/juanazocarmalverde/ms-sales-bs)
+2025-04-11T15:36:56.009-04:00  INFO 31286 --- [ms-sales-bs] [    Test worker] c.d.m.MsSalesBsApplicationTests          : No active profile set, falling back to 1 default profile: "default"
+2025-04-11T15:36:56.267-04:00  INFO 31286 --- [ms-sales-bs] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cb19027d-c52b-3cdc-9a2b-c5cb53e74fce
+2025-04-11T15:36:56.509-04:00  INFO 31286 --- [ms-sales-bs] [    Test worker] c.d.m.MsSalesBsApplicationTests          : Started MsSalesBsApplicationTests in 0.615 seconds (process running for 1.115)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

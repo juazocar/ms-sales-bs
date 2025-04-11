@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.MimeType;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.apple.eawt.Application;
-
 import cl.duoc.ms_sales_bs.client.WebPayFeignClient;
 import cl.duoc.ms_sales_bs.model.dto.SaleDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransactionRequestDTO;
