@@ -21,7 +21,7 @@ public class SaleController {
 
     @PostMapping("/sale")
     public WebPayTransactionResponseDTO createSale(@RequestBody SaleDTO saleDTO) {
-        log.info("SaleDTO: {}", saleDTO);
+        log.error("SaleDTO: {}", saleDTO);
         return saleService.createSale(saleDTO);
     }
 }

@@ -1,4 +1,4 @@
-package cl.duoc.ms_sales_bs.client;
+package cl.duoc.ms_sales_bs.config;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
