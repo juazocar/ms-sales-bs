@@ -3,8 +3,9 @@ package cl.duoc.ms_sales_bs.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cl.duoc.ms_sales_bs.config.WebPayFeignClient;
+import cl.duoc.ms_sales_bs.clients.*;
 import cl.duoc.ms_sales_bs.model.dto.SaleDTO;
+import cl.duoc.ms_sales_bs.model.dto.SalesDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransacionDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransactionQueryResponseDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransactionRequestDTO;
@@ -17,6 +18,9 @@ public class SaleService {
 
     @Autowired
     WebPayFeignClient webPayFeignClient;
+
+    @Autowired
+    SalesDbFeignClient salesDbFeignClient;
 
     public WebPayTransactionResponseDTO createSale(SaleDTO saleDTO) {
         //TODO: process POST request
@@ -40,4 +44,9 @@ public class SaleService {
        log.info("queryTransaction: {}", response);
        return response;
       }
+
+     public SalesDTO findSalesById(Long id){
+        return salesDbFeignClient.findSalesById(id).getBody();
+     }
+
 }
