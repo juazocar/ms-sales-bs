@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import cl.duoc.ms_sales_bs.model.dto.SalesDTO;
 
-@FeignClient(name = "ms-sales-db-svc", url = "http://localhost:8080")
+@FeignClient(name = "ms-sales-db-svc", url = "http://localhost:8080/api/sales")
 public interface SalesDbFeignClient {
 
-    @GetMapping("/api/sales/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<SalesDTO> findSalesById(@PathVariable Long id);
 }

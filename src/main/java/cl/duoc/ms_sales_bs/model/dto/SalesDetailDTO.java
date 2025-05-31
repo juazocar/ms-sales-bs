@@ -14,7 +14,7 @@ import lombok.ToString;
 public class SalesDetailDTO {
 
     private Long id;
-    private Long productId;
+    private ProductDTO product;
     private Long quantity; 
     private Long salesId;
 }
