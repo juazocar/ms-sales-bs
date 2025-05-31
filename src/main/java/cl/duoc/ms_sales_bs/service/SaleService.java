@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.duoc.ms_sales_bs.clients.*;
+import cl.duoc.ms_sales_bs.model.dto.ProductDTO;
 import cl.duoc.ms_sales_bs.model.dto.SaleDTO;
 import cl.duoc.ms_sales_bs.model.dto.SalesDTO;
+import cl.duoc.ms_sales_bs.model.dto.SalesDetailDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransacionDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransactionQueryResponseDTO;
 import cl.duoc.ms_sales_bs.model.dto.WebPayTransactionRequestDTO;
@@ -21,6 +23,9 @@ public class SaleService {
 
     @Autowired
     SalesDbFeignClient salesDbFeignClient;
+
+    @Autowired
+    ProductBsFeignClient productBsFeignClient;
 
     public WebPayTransactionResponseDTO createSale(SaleDTO saleDTO) {
         //TODO: process POST request
@@ -46,7 +51,15 @@ public class SaleService {
       }
 
      public SalesDTO findSalesById(Long id){
-        return salesDbFeignClient.findSalesById(id).getBody();
+        SalesDTO salesDTO = salesDbFeignClient.findSalesById(id).getBody();
+     
+        for(SalesDetailDTO salesDetailDTO: salesDTO.getSalesDetailDtoList()){
+            Long idProducto = salesDetailDTO.getProduct().getId();
+            ProductDTO product = productBsFeignClient.findProductById(idProducto).getBody();
+            salesDetailDTO.setProduct(product);
+        }
+
+        return salesDTO;
      }
 
 }

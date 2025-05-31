@@ -27,7 +27,7 @@ public class SaleController {
     SaleService saleService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<SalesDTO> findSalesById(@PathVariable Long id) {
+    public ResponseEntity<SalesDTO> findSalesById(@PathVariable("id") Long id) {
         SalesDTO salesDTO = saleService.findSalesById(id);
         return (salesDTO != null)?  new ResponseEntity<>(salesDTO, HttpStatus.OK) :
                                      new ResponseEntity<>(HttpStatus.NOT_FOUND); 
