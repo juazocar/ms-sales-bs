@@ -34,6 +34,14 @@ public class SaleController {
     }
 
     @PostMapping("")
+    public ResponseEntity<SalesDTO> postMethodName(@RequestBody SalesDTO salesDTO) {
+        //TODO: process POST request
+        SalesDTO newSalesDTO = saleService.insertSale(salesDTO);
+       return (newSalesDTO != null)?  new ResponseEntity<>(newSalesDTO, HttpStatus.OK) :
+                                     new ResponseEntity<>(HttpStatus.NOT_FOUND); 
+    }
+
+    @PostMapping("sas")
     public WebPayTransactionResponseDTO createSale(@RequestBody SaleDTO saleDTO) {
         log.error("SaleDTO: {}", saleDTO);
         return saleService.createSale(saleDTO);

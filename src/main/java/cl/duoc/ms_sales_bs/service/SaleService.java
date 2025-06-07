@@ -62,4 +62,17 @@ public class SaleService {
         return salesDTO;
      }
 
+     public SalesDTO insertSale(SalesDTO saleDTO){
+
+        SalesDTO dto = salesDbFeignClient.insertSale(saleDTO).getBody();
+        
+        for(SalesDetailDTO salesDetailDTO: dto.getSalesDetailDtoList()){
+            Long idProducto = salesDetailDTO.getProduct().getId();
+            ProductDTO product = productBsFeignClient.findProductById(idProducto).getBody();
+            salesDetailDTO.setProduct(product);
+        }
+
+        return dto;    
+     }
+
 }
